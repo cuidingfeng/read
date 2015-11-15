@@ -1,0 +1,67 @@
+body{
+  color: #333;
+}
+header{
+  line-height: 3rem;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+  background: #f25c17;
+  color: #fff;
+  position: relative;
+}
+header>.bookshop{
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  color: #fff;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  background: url(img/icon_search.png) left center no-repeat;
+  background-size: auto 70%;
+}
+header>.logo{
+  text-indent: -1000rem;
+  background: url(img/logo.png) left center no-repeat;
+  background-size: auto 80%;
+}
+.bookshop:hover{
+  text-decoration: none;
+}
+.bookracklist{
+  display: -webkit-flex;
+  display: flex;
+  flex-flow: row wrap;
+  padding-bottom: 1.5rem;
+}
+.bookone{
+  width: 25%;
+  text-align: center;
+  margin-top: 1.5rem;
+  box-sizing: padding-box;
+  margin-left: 6.3%;
+}
+.bookimg{
+  width: 100%;
+  height: 6.8rem;
+}
+.bookname{
+  display: block;
+  text-align: left;
+  line-height: 1.2rem;
+  margin-top: 0.1rem;
+  font-size: 0.8rem;
+}
+.addbook{
+  height: 6.8rem;
+  line-height: 6.5rem;
+  border: #f25c17 dashed  1px;
+  box-sizing: border-box;
+  /*background: url(img/typesetting_custom_plus.png) center center no-repeat;
+  background-size: 100% auto;
+  */
+  color: #f25c17;
+  font-size: 3rem;
+}
+.addbook::after{
+  content: "+";
+}

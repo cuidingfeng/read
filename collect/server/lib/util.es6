@@ -1,25 +1,50 @@
 var request = require('urllib-sync').request;
 var md5 = require('MD5');
+var http = require('http');
 //var logger = require('yog-log').getLogger();//默认通过domain获取，单独使用请传递config
 
-var getUrl = (url) => {
-  try {
-    var res = request(url);
-  } catch (e) {
-    console.log('同步获取url数据失败：' + url);
-    //logger.log('warning','同步获取url数据失败：' + url); //or logger.warning('msg');
-    res = request(url);
-  } finally {
+var getUrl = (url, json) => {
+  var promise = new Promise(function(resolve, reject){
+    var res;
+    //res = request(url);
+    http.get(url, function(res) {
+        var size = 0;
+        var chunks = [];
+      res.on('data', function(chunk){
+          size += chunk.length;
+          chunks.push(chunk);
+      });
+      res.on('end', function(){
+          var data = Buffer.concat(chunks, size), jsondata;
+          if(json){
+            try {
+              jsondata = JSON.parse(data.toString());
+              resolve(jsondata);
+            } catch (e) {
+              reject(e.message);
+            } finally {
 
-  }
-
-  return res.data.toString();
+            }
+          }else{
+            resolve(data.toString());
+          }
+          //console.log(data.toString())
+      });
+    }).on('error', function(e) {
+      console.log("Got error: " + e.message);
+      reject(e.message);
+    });
+  });
+  return promise;
+};
+var getUrlJson = (url) => {
+  return getUrl(url, true)
 };
 
 module.exports = {
-  get: (url) => getUrl(url),
+  get: getUrl,
 
-  getJson: (url) => JSON.parse(getUrl(url)),
+  getJson: getUrlJson,
 
   createId: (...str) => {
     str.forEach( (o, i) => str[i] = md5(o) );

@@ -6,7 +6,7 @@ module.exports = function(router){
     // also you can add custom action
     // require /spa/some/hefangshi
     // router.get('/some/:user', router.action('api'));
-    
+
     // or write action directly
     // router.get('/some/:user', function(res, req){});
 

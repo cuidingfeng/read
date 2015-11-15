@@ -2,8 +2,7 @@ var book = require('../model/book');
 var db = require('../lib/db');
 module.exports = function(req, res){
     db.getBooksBynotok().then((rs) => {
-
-      res.send({
+      res.render('collect/page/index.tpl', {
         list: rs,
         size: rs.length
       });
@@ -14,8 +13,8 @@ module.exports = function(req, res){
 
 module.exports.get = function(req, res, next){
     if(req.params.id === "updateAllBook"){
-      book.updateAllBook();
-      res.send("正在更新所有书籍的基本信息……");
+      console.log(book.updateAllBook());
+      res.send("正在更新所有书籍的基本信息……" + rs.length);
     }else if(req.params.id === "recommendBookAll"){
       book.recommendBookAll();
       res.send("正在获取所有书籍的相关书籍……");

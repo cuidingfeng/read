@@ -1,5 +1,10 @@
 var util = require("../lib/util");
 var db = require("../lib/db");
+var socket = require('../lib/websocket');
+var asyncFunc = require('../lib/asyncFunc');
+
+var evtFile = asyncFunc.eventclass();
+
 /*按分类获取书籍列表*/
 var _getBookByCat = module.exports.getBookByCat = (cat, start = 0) =>{
 	cat = encodeURI(cat);
@@ -98,19 +103,33 @@ module.exports.recommendBookAll = () => {
 
 /*更新书籍所有信息*/
 var updateBook = module.exports.updateBook = (fromId) => {
+	socket.send("更新书籍ID："+fromId);
 	var json = util.getJson(`http://api.zhuishushenqi.com/book/${fromId}`);
-	_saveDB({
-		ok: true,
-		books: [json]
-	}, 'update');
+	json.then( (data) => {
+		_saveDB({
+			ok: true,
+			books: [data]
+		}, 'update');
+	}, (error) => {
+		console.log("更新书籍失败：" + fromId);
+	});
 	return json;
 };
 
 /*更新书籍所有信息*/
 module.exports.updateAllBook = () => {
+	var fileQueue = evtFile.fnQueue(10);
 	db.getBooksBynotok().then((rs) => {
-		rs.forEach((mrs) => updateBook(mrs.fromId));
+		socket.send("列表获取成功:"+rs.length);
+		rs.forEach((mrs) => fileQueue.push(function(queue){
+													updateBook(mrs.fromId).then( () => {
+														queue.end();//线程结束
+													});
+							          })
+		);
+		return rs;
 	}, (sql) => {
 		console.log('获取未更新完成书籍列表失败，Sql:' + sql);
 	});
+	return db;
 };

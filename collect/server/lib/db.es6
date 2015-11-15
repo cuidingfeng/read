@@ -73,17 +73,12 @@ module.exports = {
       });
     });
   },
-  updateBook: (post) => {
-    return new Promise((resolve,reject) => {
-      var query = db.query(`update book set ? where fromId='${post.fromId}'`, post, (err, rows, fields) => {
-        if(!err){
-          resolve(rows);
-        }else{
-          reject(query.sql);
-        }
-      });
-    });
+  addSection: (post) => {
+    post.id = util.createId(post.bid, post.sequence);
+    console.log(post);
+    insert("section", post);
   }
+
 };
 
 //db.end();
