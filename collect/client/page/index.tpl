@@ -1,4 +1,4 @@
-{% extends 'collect:page/layout.tpl' %}
+{% extends 'collect:page/layout1.tpl' %}
 
 {% block content %}
      <div id="pages-container">

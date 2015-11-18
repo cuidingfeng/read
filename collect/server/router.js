@@ -11,6 +11,7 @@ module.exports = function(router){
     // router.get('/some/:user', function(res, req){});
 
     // a restful api example
+/*
     router.route('/book')
         // PUT /collect/book
         .put(router.action('book').put)
@@ -22,4 +23,5 @@ module.exports = function(router){
         .get(router.action('book').get)
         // DELETE /collect/book/1
         .delete(router.action('book').delete);
+    */
 };

@@ -1,13 +1,13 @@
-var md_cat = require('../model/cat');
+var md_search = require('../model/search');
 module.exports = function(req, res){
   var page = req.query.page, tpl = 'collect/widget/catlist/catlist.tpl';
   if(!page){
     page = 0;
     tpl = 'collect/page/cat.tpl';
   }
-  md_cat.getdata(req.query.tag, page).then( (data) => {
+  md_search.getdata(req.query.key, page).then( (data) => {
     res.render(tpl, {
-      title: req.query.tag,
+      title: "搜索：" + req.query.key,
       json: data
     });
 	}, (error) => {

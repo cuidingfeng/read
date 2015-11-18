@@ -1,0 +1,241 @@
+body{
+  padding-top: 3rem;
+  color: #444;
+}
+.search{
+  font-size: 1.4rem;
+  padding: .4rem .6rem;
+  background: #f25c17;
+  color: #fff;
+  position: relative;
+  display: -webkit-flex;    /* Chrome, WebKit */
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+  top: 0;
+  left: 0;
+}
+.ipt-search{
+  font-size: .8rem;
+  height: 2rem;
+  background:#fff url(../img/menu_icon_search.png) .4rem center no-repeat;
+  background-size: auto 60%;
+  padding-left: 2rem;
+  vertical-align: middle;
+  -webkit-flex:1;
+  flex: 1;
+  margin-right: .6rem;
+  border: #e9e9e9 solid 1px;
+  border-radius: .5rem;
+}
+.btn-search{
+  width: 4rem;
+  height: 2rem;
+  vertical-align: middle;
+  background: #e9e9e9;
+  border: #d1d1d5  solid 1px, #f25c17 solid 1px;
+  border-radius: .5rem;
+  color: #f25c17;
+  font-size: 1rem;
+}
+.back{
+  width: 1.8rem;
+  height: 1.8rem;
+  background:url(../img/menu_read_seek_back1.png) 0 center no-repeat;
+  background-size: auto 100%;
+  border: #fff solid 1px;
+  border-radius: 50%;
+}
+.search .title{
+  text-align: center;
+  font-size: 1.2rem;
+  flex: 1;
+  -webkit-flex: 1;
+  margin-right: 1.8rem;
+}
+a{
+  color: #666666;
+}
+.taglist{
+  margin-bottom: 1rem;
+}
+.tagType{
+  background: #f5f5f5;
+  line-height: 2rem;
+  font-size: 1rem;
+  padding-left: 0.6rem;
+  color: #878787;
+  border-top: #e9e9e9 solid 1px;
+  border-bottom: #e9e9e9 solid 1px;
+}
+.tags{
+  padding: 0 0.6rem;
+  line-height: 2.6rem;
+  font-size: 1rem;
+  display: -webkit-flex;    /* Chrome, WebKit */
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+}
+.tags>a{
+  width: 50%;
+  display: inline-block;
+  text-align: left;
+  border-bottom: #d1d1d5 solid 1px;
+  box-sizing: border-box;
+}
+.tags>a:nth-child(2n+1):last-child{
+  width:100%;
+}
+.tags>a:nth-child(2n):before{
+  content: "";
+  border-left: #d1d1d5 solid 1px;
+  display: inline-block;
+  vertical-align: middle;
+  width: .6rem;
+  height: 1.6rem;
+}
+.male{
+  background:#fff url(../img/select_book_nor_boy.png) .4rem center no-repeat;
+  background-size: auto 70%;
+  padding-left: 2.2rem;
+}
+.female{
+  background:#fff url(../img/select_book_nor_girl.png) .4rem center no-repeat;
+  background-size: auto 70%;
+  padding-left: 2rem;
+}
+.booklist{
+  padding-left: .5rem;
+}
+.bookone{
+  display: -webkit-flex;    /* Chrome, WebKit */
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+  padding: 0.3rem 0;
+  border-bottom: #d1d1d5 solid 1px;
+}
+.bookone:hover{
+  text-decoration: none;
+}
+.bookone .bookimg{
+  width: 2.6rem;
+  height: 3.5rem;
+  padding: 1px;
+  border: #eee solid 1px;
+  margin-right: .3rem;
+}
+.content{
+  flex: 1;
+}
+.booktitle{
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: bold;
+}
+.bookone .bookdes{
+  height: 1.3rem;
+  line-height: 1.3rem;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-family: "宋休";
+  font-size: .8rem;
+}
+.bookfoot{
+  font-size: .6rem;
+  line-height: 0.8rem;
+}
+.author{
+  margin-right: 2rem;
+  padding-left: 1rem;
+  color: #69b2b5;
+  background:url(../img/tabbar_fov_f.png) left center no-repeat;
+  background-size: auto 100%;
+}
+.keep{
+  color: #999;
+}
+.nomore{
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: .8rem;
+}
+.loadmore{
+  text-align: center;
+  line-height: 2.4rem;
+  font-size: .8rem;
+  background: #f6f6f7;
+}
+.bookbox{
+  padding: 1rem;
+}
+.bookmsg{
+  display: -webkit-flex;    /* Chrome, WebKit */
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+}
+.bookmsg .bookimg{
+  width: 5rem;
+  height: 7rem;
+  padding: 1px;
+  border: #eee solid 1px;
+  margin-right: 1.5rem;
+}
+.bookmsg .booktitle{
+  font-weight: normal;
+  line-height: 1.4rem;
+}
+.bookmsg .bookdes{
+  color: #888;
+  margin-top: .5rem;
+}
+.btns{
+  display: -webkit-flex;    /* Chrome, WebKit */
+	display: box;
+	display: flexbox;
+	display: flex;
+	-webkit-flex-flow: row nowrap;
+	flex-flow: row nowrap;
+  margin: 1.5rem 0;
+}
+.btns>a{
+  width: 50%;
+  line-height: 2.4rem;
+  border-radius: .4rem;
+  flex: 1;
+  text-align: center;
+}
+.btns>a:hover{
+  text-decoration: none;
+}
+.online{
+  margin-right: 1rem;
+  background: #e9e9e9;
+  border: #e3e3e3  solid 1px;
+  color: #333;
+}
+.downbook{
+  background: #e8554d;
+  border: #d64840  solid 1px;
+  color: #fff;
+}
+.bookbrief{
+  color: #777;
+  line-height: 1.8rem;
+}

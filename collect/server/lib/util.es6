@@ -7,7 +7,7 @@ var getUrl = (url, json) => {
   var promise = new Promise(function(resolve, reject){
     var res;
     //res = request(url);
-    http.get(url, function(res) {
+    var req = http.get(url, function(res) {
         var size = 0;
         var chunks = [];
       res.on('data', function(chunk){
@@ -30,6 +30,7 @@ var getUrl = (url, json) => {
           }
           //console.log(data.toString())
       });
+      req.end();
     }).on('error', function(e) {
       console.log("Got error: " + e.message);
       reject(e.message);
@@ -38,6 +39,7 @@ var getUrl = (url, json) => {
   return promise;
 };
 var getUrlJson = (url) => {
+  console.log(url);
   return getUrl(url, true)
 };
 
